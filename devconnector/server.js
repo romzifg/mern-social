@@ -7,6 +7,7 @@ const posts = require('./routes/api/posts')
 
 const app = express();
 
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 
 // DB config
@@ -23,9 +24,9 @@ app.get('/', (req, res) => {
 });
 
 // Use Routes
-app.use('/api/users', users)
-app.use('/api/profile', profile)
-app.use('/api/posts', posts)
+app.use('/api/v1/users', users)
+app.use('/api/v1/profile', profile)
+app.use('/api/v1/posts', posts)
 
 const port = process.env.PORT || 5000;
 
